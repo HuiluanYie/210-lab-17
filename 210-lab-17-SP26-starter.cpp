@@ -56,24 +56,28 @@ int main() {
         cout << "6. Print the list\n";
         cout << "7. Exit\n";
         cin >> choice;
-        if (choice < 1 || choice > 6)
+        if (choice < 1 || choice > 7)
         {
-            cout << "Invalid choice, please try again: \n";
+            cout << "Invalid choice, please try again. \n";
         }
         else
         {
             switch (choice) {
             case 1:
                 add_front(head);
+                break;
 
             case 2:
                 add_tail(head);
+                break;
 
             case 3:
                 delete_node(head);
+                break;
 
             case 4:
                 insert_node(head);
+                break;
 
             case 5:
                 delete_entire(head);
@@ -90,6 +94,7 @@ int main() {
                 delete_entire(head);
                 cout << "Program ended.\n";
                 break;
+            }
         }
     } while (choice != 7);
     
@@ -98,6 +103,9 @@ int main() {
 
 //Function definition
 void output(Node *hd) {
+    // output() outputs the linked list
+    // arguments: a node pointer by reference
+    // returns: none
     if (!hd) {
         cout << "Empty list.\n";
         return;
