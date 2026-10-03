@@ -7,7 +7,7 @@ const int SIZE = 7;
 
 struct Node {
     float value;
-    Node *next;
+    Node *next = nullptr;
 };
 
 //Function prototype
@@ -135,12 +135,25 @@ void output(Node *hd) {
 void add_front(Node*& hd)
 {
     // add_front() adds node at head 
-    // arguments: a node pointer
+    // arguments: a node pointer by reference
     // returns: none
-    float t;
-
-    get_node(hd, t);
-
+    float num;
+    Node* n = nullptr;
+    cout << "Please enter a number to add to the front of the linked list: ";
+    cin >> num;
+    n = get_node(num);
+    
+    // adds node at head
+    if (!hd) {
+        head = newVal;
+        newVal->next = nullptr;
+        newVal->value = tmp_val;
+    }
+    else {
+        newVal->next = head;
+        newVal->value = tmp_val;
+        head = newVal;
+    }
 }
 
 void add_tail(Node*& hd)
@@ -163,18 +176,21 @@ void delete_entire(Node*& hd)
 
 }
 
-Node* get_node()
+Node* get_node(float v)
 {
-    // get_node() gets a value from user 
-    // arguments: none
-    // returns:
+    // get_node() make a new node with the value passed in
+    // arguments: a value
+    // returns: a node pointer
     Node* new_node = new Node;
-
+    new_node->value = v;
     return new_node;
 }
 
 Node* find_node(Node* hd, float target)
 {
+    // find_node() finds the target in the linked list
+    // arguments: the header of the linked list, the target to find
+    // returns: a node pointer
     Node* current = hd;
     while (current)
     {
