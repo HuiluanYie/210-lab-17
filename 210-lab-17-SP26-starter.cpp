@@ -1,6 +1,7 @@
 // COMSC-210 | Lab 17 | Huiluan Yie
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 const int SIZE = 7;  
@@ -12,11 +13,12 @@ struct Node {
 
 //Function prototype
 void output(Node *);
-void add_front(Node *);
-void add_tail(Node *);
-void delete_node(Node *);
-void insert_node(Node *);
-void delete_entire(Node *);
+void add_front(Node*&);
+void add_tail(Node*&);
+void delete_node(Node*&);
+void insert_node(Node*&);
+void delete_entire(Node*&);
+Node* get_node(Node*, string);
 
 int main() {
     // declarations
@@ -131,29 +133,40 @@ void output(Node *hd) {
     cout << endl;
 }
 
-void add_front(Node *n)
+void add_front(Node*& hd)
 {
-    // sort_by_score() sort the student data by student score using selection sort 
-    // arguments: an array of Student
+    // add_front() adds node at head 
+    // arguments: a node pointer
     // returns: none
+
 }
 
-void add_tail(Node *n)
+void add_tail(Node*& hd)
 {
 
 }
 
-void delete_node(Node *n)
+void delete_node(Node*& hd)
 {
 
 }
 
-void insert_node(Node *n)
+void insert_node(Node*& hd)
 {
 
 }
 
-void delete_entire(Node *hd)
+void delete_entire(Node*& hd)
 {
 
+}
+
+Node* get_node(Node* hd, string target)
+{
+    if (condition)
+    {
+        /* code */
+    }
+    
+    return nullptr;
 }
