@@ -175,24 +175,84 @@ void add_tail(Node*& hd)
     cin >> num;
     n = get_node(num);
 
-    // adds node at head
-    if (!hd) {
+    // adds node at tail
+    if (!t) {
         hd = n;
     }
     else {
-        n->next = hd;
-        hd = n;
+        t->next = n;
     }
 
 }
 
 void delete_node(Node*& hd)
 {
+    // delete_node() deletes a node 
+    // arguments: a node pointer by reference
+    // returns: none
+
+    cout << "Which node to delete? " << endl;
+    output(hd);
+    int entry;
+    cout << "Choice --> ";
+    cin >> entry;
+
+    // traverse that many times and delete that node
+    Node *current = hd;
+    Node *prev = nullptr;  // start prev as nullptr to detect head deletion
+
+    for (int i = 0; i < (entry - 1); i++) {
+        prev = current;
+        current = current->next;
+    }
+
+    // delete the node
+    if (current) {
+        if (prev == nullptr) {
+            // deleting the head node
+            hd = current->next;
+        } else {
+            prev->next = current->next;
+        }
+        delete current;
+        current = nullptr;
+    }
 
 }
 
 void insert_node(Node*& hd)
 {
+    // insert a node
+    cout << "After which node to insert? " << endl;
+    int count = 1;
+    Node *current = hd;
+    while (current) {
+        cout << "[" << count++ << "] " << current->value << endl;
+        current = current->next;
+    }
+    cout << "Choice --> ";
+    cin >> entry;
+
+    current = head;
+    prev = nullptr;  // reset prev to nullptr for same reason
+
+    for (int i = 0; i < entry; i++) {
+        prev = current;
+        current = current->next;
+    }
+
+    // at this point, insert a node between prev and current
+    Node *newnode = new Node;
+    newnode->value = 10000;
+    newnode->next = current;
+
+    if (prev == nullptr) {
+        // inserting before the head
+        head = newnode;
+    } else {
+        prev->next = newnode;
+    }
+    output(head);
 
 }
 
