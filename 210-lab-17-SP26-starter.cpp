@@ -119,9 +119,13 @@ void output(Node *hd) {
     cout << endl;
 }
 
+
 void add_front(Node*& hd)
 {
     // add_front() adds node at head 
+    // why this approach: Head is passed by reference so the function can change 
+    //                      the linked list's head pointer if needed; 
+    //                      and the function don't need to return it
     // arguments: a node pointer by reference
     // returns: none
 
@@ -225,8 +229,11 @@ void insert_node(Node*& hd)
     
     // move the current pointer in place
     for (int i = 0; i < count; i++) {
-        prev = current;
-        current = current->next;
+        if (current)
+        {
+            prev = current;
+            current = current->next;
+        }
     }
 
     Node* n = nullptr;
