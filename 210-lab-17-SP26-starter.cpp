@@ -222,26 +222,43 @@ void delete_node(Node*& hd)
 
 void insert_node(Node*& hd)
 {
-    // insert a node
-    cout << "After which node to insert? " << endl;
-    int count = 1;
+    // insert_node() insert a node 
+    // arguments: a node pointer by reference
+    // returns: none
+
+    int count;
+    float num;
     Node *current = hd;
-    while (current) {
-        cout << "[" << count++ << "] " << current->value << endl;
-        current = current->next;
-    }
+    Node *prev = nullptr;
+
+    cout << "After which node to insert? " << endl;
+    output(hd);
     cout << "Choice --> ";
-    cin >> entry;
-
-    current = head;
-    prev = nullptr;  // reset prev to nullptr for same reason
-
-    for (int i = 0; i < entry; i++) {
+    cin >> count;
+    
+    // move the current pointer in place
+    for (int i = 0; i < count; i++) {
         prev = current;
         current = current->next;
     }
 
-    // at this point, insert a node between prev and current
+    Node* n = nullptr;
+    cout << "What number to insert?  ";
+    cin >> num;
+    n = get_node(num);
+    
+    // adds node at head
+    if (!current) {
+        hd = n;
+    }
+    else {
+        n->next = current;
+
+    }
+
+
+    cout << "What number to insert? " << endl;
+    cin >> num;
     Node *newnode = new Node;
     newnode->value = 10000;
     newnode->next = current;
