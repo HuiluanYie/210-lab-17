@@ -17,7 +17,7 @@ void add_tail(Node*&);
 void delete_node(Node*&);
 void insert_node(Node*&);
 void delete_entire(Node*&);
-Node* get_node(Node*, float);
+Node* get_node(float v);
 
 int main() {
     // declarations
@@ -41,28 +41,58 @@ int main() {
             head = newVal;
         }
     }
+
+    // choice menu
     do
     {
         cout << "The current linked list: \n";
         output(head);
-    } while (choice != );
+        cout << "\n========== LINKED LIST MENU ==========\n";
+        cout << "1. Add a node to the front\n";
+        cout << "2. Add a node to the tail\n";
+        cout << "3. Delete a node\n";
+        cout << "4. Insert a node\n";
+        cout << "5. Delete the entire list\n";
+        cout << "6. Print the list\n";
+        cout << "7. Exit\n";
+        cin >> choice;
+        if (choice < 1 || choice > 6)
+        {
+            cout << "Invalid choice, please try again: \n";
+        }
+        else
+        {
+            switch (choice) {
+            case 1:
+                add_front(head);
+
+            case 2:
+                add_tail(head);
+
+            case 3:
+                delete_node(head);
+
+            case 4:
+                insert_node(head);
+
+            case 5:
+                delete_entire(head);
+                cout << "The linked list was deleted.\n";
+                output(head);
+                break;
+
+            case 6:
+                output(head);
+                break;
+
+            case 7:
+                // Release any remaining nodes before exiting.
+                delete_entire(head);
+                cout << "Program ended.\n";
+                break;
+        }
+    } while (choice != 7);
     
-    
-
-    //
-
-    // deleting a node
-    
-
-    // insert a node
-    
-
-
-    // deleting the linked list
-
-
-    output(head);
-
     return 0;
 }
 
@@ -229,21 +259,4 @@ Node* get_node(float v)
     Node* new_node = new Node;
     new_node->value = v;
     return new_node;
-}
-
-Node* find_node(Node* hd, float target)
-{
-    // find_node() finds the target in the linked list
-    // arguments: the header of the linked list, the target to find
-    // returns: a node pointer
-    Node* current = hd;
-    while (current)
-    {
-        if (current->value == target)
-        {
-            return current;
-        }
-        current = current->next;
-    }
-    return nullptr;
 }
