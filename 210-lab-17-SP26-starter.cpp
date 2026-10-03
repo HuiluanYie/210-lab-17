@@ -137,6 +137,8 @@ void add_front(Node*& hd)
     // add_front() adds node at head 
     // arguments: a node pointer by reference
     // returns: none
+
+    // get the node to add
     float num;
     Node* n = nullptr;
     cout << "Please enter a number to add to the front of the linked list: ";
@@ -145,19 +147,42 @@ void add_front(Node*& hd)
     
     // adds node at head
     if (!hd) {
-        head = newVal;
-        newVal->next = nullptr;
-        newVal->value = tmp_val;
+        hd = n;
     }
     else {
-        newVal->next = head;
-        newVal->value = tmp_val;
-        head = newVal;
+        n->next = hd;
+        hd = n;
     }
 }
 
 void add_tail(Node*& hd)
 {
+    // add_tail() adds node at tail 
+    // arguments: a node pointer by reference
+    // returns: none
+    
+    Node* t = hd;
+    // go to the tail of this linked list 
+    while (t != nullptr && t->next != nullptr)
+    {
+        t = t->next;
+    }
+
+    // get the node to add
+    float num;
+    Node* n = nullptr;
+    cout << "Please enter a number to add to the tail of the linked list: ";
+    cin >> num;
+    n = get_node(num);
+
+    // adds node at head
+    if (!hd) {
+        hd = n;
+    }
+    else {
+        n->next = hd;
+        hd = n;
+    }
 
 }
 
