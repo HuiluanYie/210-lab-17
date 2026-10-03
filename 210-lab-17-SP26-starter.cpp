@@ -1,7 +1,6 @@
 // COMSC-210 | Lab 17 | Huiluan Yie
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 const int SIZE = 7;  
@@ -18,7 +17,7 @@ void add_tail(Node*&);
 void delete_node(Node*&);
 void insert_node(Node*&);
 void delete_entire(Node*&);
-Node* get_node(Node*, string);
+Node* get_node(Node*, float);
 
 int main() {
     // declarations
@@ -138,6 +137,9 @@ void add_front(Node*& hd)
     // add_front() adds node at head 
     // arguments: a node pointer
     // returns: none
+    float t;
+
+    get_node(hd, t);
 
 }
 
@@ -161,12 +163,26 @@ void delete_entire(Node*& hd)
 
 }
 
-Node* get_node(Node* hd, string target)
+Node* get_node()
 {
-    if (condition)
+    // get_node() gets a value from user 
+    // arguments: none
+    // returns:
+    Node* new_node = new Node;
+
+    return new_node;
+}
+
+Node* find_node(Node* hd, float target)
+{
+    Node* current = hd;
+    while (current)
     {
-        /* code */
+        if (current->value == target)
+        {
+            return current;
+        }
+        current = current->next;
     }
-    
     return nullptr;
 }
