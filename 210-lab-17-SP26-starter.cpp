@@ -10,9 +10,16 @@ struct Node {
     Node *next;
 };
 
+//Function prototype
 void output(Node *);
+void add_front(Node *);
+void add_tail(Node *);
+void delete_node(Node *);
+void insert_node(Node *);
+void delete_entire(Node *);
 
 int main() {
+    // declarations
     Node *head = nullptr;
     int count = 0;
 
@@ -109,6 +116,7 @@ int main() {
     return 0;
 }
 
+//Function definition
 void output(Node *hd) {
     if (!hd) {
         cout << "Empty list.\n";
@@ -121,4 +129,31 @@ void output(Node *hd) {
         current = current->next;
     }
     cout << endl;
+}
+
+void add_front(Node *n)
+{
+    // sort_by_score() sort the student data by student score using selection sort 
+    // arguments: an array of Student
+    // returns: none
+}
+
+void add_tail(Node *n)
+{
+
+}
+
+void delete_node(Node *n)
+{
+
+}
+
+void insert_node(Node *n)
+{
+
+}
+
+void delete_entire(Node *hd)
+{
+
 }
